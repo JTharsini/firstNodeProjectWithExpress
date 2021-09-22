@@ -20,3 +20,10 @@ set environment variable PORT = 5000
 
 route parameters are essential, query parameters are additional or optional
 
+Need postman (it's a rest client) to test post requests.
+
+If user forgets input ==> validation.
+
+To separate validation and handle, use joi
+install joi : npm -g install joi
+for joi, need to define a schema
