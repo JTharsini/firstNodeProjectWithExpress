@@ -8,4 +8,15 @@ HTTP methods:
 -PUT - update api/customers/1
 -DELETE - delete api/customers/1
 
-install Express: npm -g i express
+install Express: npm -g install express
+
+https://expressjs.com/en/4x/api.html#req
+
+install nodemon (node monitor) to stop server and restart the server(nodemon will do it for us): 
+npm -g install nodemon
+with nodemon, need to run command like this: nodemon index.js
+
+set environment variable PORT = 5000
+
+route parameters are essential, query parameters are additional or optional
+
