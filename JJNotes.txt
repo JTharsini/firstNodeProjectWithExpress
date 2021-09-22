@@ -1,0 +1,80 @@
+//from https://www.youtube.com/watch?v=TlB_eWDSMt4
+
+Node js or Node:
+open source cross platform runtime environment for executing JavaScript code outside of the browsers. Quite often we
+use Node to build back-end service or APIs (Application Programming Interface)
+
+It powers client applications like webapp running in web browsers or mobile app running on mobile devices. client
+applications are just surfaces and they need to talk with back-end services sitting on a server or in a cloud to 
+provide services. 
+
+Node is ideal for building highly-scalable, data-intensive and real-time back-end services that power client applications.
+
+What special about Node:
+-Easy to get started
+-Great for prototyping and agile development
+-building superfast & highly scalable services
+(used by Paypal, uber, netflix & etc)
+-JavaScript is enough
+-cleaner and more consistent codebase with front-end & back-end JS
+-large ecosystem of open-source libs
+(no need to build from scratch. can focus on development)
+
+Node architecture:
+
+-Before Node, applications which run inside browsers only written in JS.
+-browsers were JS Engine which converts JS code to machine code.
+Eg: Microsoft uses Chakra, Firebox uses SpiderMonkey, Chrome uses v8(fastest)
+-Different browsers use different engines ==> code behaves different manner
+-v8 engine embedded inside C++ program is introduced as Node.
+
+Node is not a Programming language nor a framework.
+
+Why Node is faster? non-blocking asynchronous nature of Node.
+how? Single thread is used to handle multiple request.
+-While database is getting data ready, this thread can go to handle another request.
+Node applications are asynchronous by default. Asp.net are synchronous by default. But can be made them as 
+-asynchronous.
+-once database query result is ready, it will place the data in Event Queue.
+-Node continously is monitoring the event queue in the background. When it finds an event in the queue, it take it out and process it.
+==> Node is ideal for I/O intensive applications. (required lot of network and disk access).
+serve more clients without extra hardwork.
+Don't use Node for CPU intensive applications (video encoding & email manipulation services)
+(more CPU calculations and very few network and file system access)
+While serving one by calculations others needs to wait.
+==> only suitable for data intensive real applications.
+
+check node version: node --version
+
+run JavaScript code in node: node app.js
+
+In node, there is no Document or Window object. these are part of the runtime
+in browsers. Instead we have global object in node.
+console.log(window); will not work
+
+Node Module System:
+os (operating system),
+fs (file system),
+events,
+http
+
+variables and functions defined will not be added to global scope
+
+every file in a Node applications are considered as module. variables and functions in that file are scoped to that
+module. private & not available outside to the container. to make it available outside, need to explicitly export
+it and make it public.
+
+get hint for errors: jshint app.js
+(install jshint: npm install -g jshint)
+
+while using imported module from another module:
+node creates a wrapper function as below: This is known as Module wrapper function.
+function (exports, require, module, __filename, __dirname)
+{
+    // whatever things we exported to use
+}
+module.exports.log is equivalent to exports.log
+but can't assign like exports = log; because exports is a reference. we can't change the reference.
+
+Event: A signal that something has happened in our application.
+httpServer from node is inheriting EventEmitter.

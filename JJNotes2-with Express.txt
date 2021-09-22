@@ -1,0 +1,11 @@
+RESTful Services:
+REST : Representational State Transfer
+for CRUD operations
+
+HTTP methods: 
+-GET - get, (all customers) /api/customers, (get by id) /api/customers/1
+-POST - create api/customers
+-PUT - update api/customers/1
+-DELETE - delete api/customers/1
+
+install Express: npm -g i express
